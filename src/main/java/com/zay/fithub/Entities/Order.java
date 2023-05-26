@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.Objects;
@@ -19,17 +19,15 @@ public class Order {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private String id;
-    private String firstName;
-    @ManyToOne
+    @OneToOne
     private Cart cart;
 
 
     public Order() {
     }
 
-    public Order(String id, String firstName, Cart cart) {
+    public Order(String id, Cart cart) {
         this.id = id;
-        this.firstName = firstName;
         this.cart = cart;
     }
 
@@ -39,14 +37,6 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public Cart getCart() {
@@ -59,11 +49,6 @@ public class Order {
 
     public Order id(String id) {
         setId(id);
-        return this;
-    }
-
-    public Order firstName(String firstName) {
-        setFirstName(firstName);
         return this;
     }
 
@@ -80,20 +65,21 @@ public class Order {
             return false;
         }
         Order order = (Order) o;
-        return id == order.id && Objects.equals(firstName, order.firstName) && Objects.equals(cart, order.cart);
+        return Objects.equals(id, order.id) && Objects.equals(cart, order.cart);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, cart);
+        return Objects.hash(id, cart);
     }
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", firstName='" + getFirstName() + "'" +
             ", cart='" + getCart() + "'" +
             "}";
     }
+
+
 }
