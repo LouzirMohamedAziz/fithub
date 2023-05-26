@@ -18,7 +18,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private String firstName;
     @ManyToOne
     private Cart cart;
@@ -27,17 +27,17 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, String firstName, Cart cart) {
+    public Order(String id, String firstName, Cart cart) {
         this.id = id;
         this.firstName = firstName;
         this.cart = cart;
     }
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,7 +57,7 @@ public class Order {
         this.cart = cart;
     }
 
-    public Order id(int id) {
+    public Order id(String id) {
         setId(id);
         return this;
     }

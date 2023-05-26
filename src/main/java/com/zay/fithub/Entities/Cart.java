@@ -21,7 +21,7 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private int quantity;
     private double total;
     @ManyToOne
@@ -33,7 +33,7 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(int id, int quantity, double total, Set<User> users, Set<Product> products) {
+    public Cart(String id, int quantity, double total, Set<User> users, Set<Product> products) {
         this.id = id;
         this.quantity = quantity;
         this.total = total;
@@ -41,11 +41,11 @@ public class Cart {
         this.products = products;
     }
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -81,7 +81,7 @@ public class Cart {
         this.products = products;
     }
 
-    public Cart id(int id) {
+    public Cart id(String id) {
         setId(id);
         return this;
     }

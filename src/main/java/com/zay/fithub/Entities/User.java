@@ -10,14 +10,14 @@ import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "users")
+@Document(collection = "/users")
 @Entity
 @Table
 public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private String firstName;
     private String name;
     private Date birthDate;
@@ -28,7 +28,7 @@ public class User {
     }
 
 
-    public User(int id, String firstName, String name, Date birthDate, String nationality) {
+    public User(String id, String firstName, String name, Date birthDate, String nationality) {
         this.id = id;
         this.firstName = firstName;
         this.name = name;
@@ -37,11 +37,11 @@ public class User {
     }
 
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -88,6 +88,5 @@ public class User {
             ", nationality='" + getNationality() + "'" +
             "}";
     }
-    
 
 }

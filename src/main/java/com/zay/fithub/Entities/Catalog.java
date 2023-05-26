@@ -18,7 +18,7 @@ public class Catalog {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private String nom;
     @ManyToMany
     private Product products;
@@ -27,17 +27,17 @@ public class Catalog {
     public Catalog() {
     }
 
-    public Catalog(int id, String nom, Product products) {
+    public Catalog(String id, String nom, Product products) {
         this.id = id;
         this.nom = nom;
         this.products = products;
     }
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,7 +57,7 @@ public class Catalog {
         this.products = products;
     }
 
-    public Catalog id(int id) {
+    public Catalog id(String id) {
         setId(id);
         return this;
     }
