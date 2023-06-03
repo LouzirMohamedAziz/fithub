@@ -1,7 +1,6 @@
 package com.zay.fithub.Services;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.zay.fithub.Entities.User;
@@ -11,6 +10,8 @@ import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class UserService {
+
+
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -25,7 +26,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long id) {
+    public User getUserById(String id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cart not found with id: " + id));
     }

@@ -2,6 +2,8 @@ package com.zay.fithub.Controllers;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,32 +15,39 @@ import org.springframework.web.bind.annotation.RestController;
 import com.zay.fithub.Entities.User;
 import com.zay.fithub.Services.UserService;
 
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+
     private final UserService userService;
+    private static final Logger logger = (Logger) LogManager.getLogger(UserController.class);
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @PostMapping
-    public User createProduct(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
+        logger.info("Creating new User ..");
         return userService.createUser(user);
     }
 
     @GetMapping
-    public List<User> getAllProducts() {
+    public List<User> getAllUsers() {
+        logger.info("Retrieving all Users ..");
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public User getProductById(@PathVariable Long id) {
+    public User getUserById(@PathVariable String id) {
+        logger.info("Retrieving User with id=" +id+" ..");
         return userService.getUserById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduct(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
 }
