@@ -25,12 +25,12 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public Order getOrderById(Long id) {
+    public Order getOrderById(String id) {
         return orderRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Order not found with id: " + id));
     }
 
-    public void deleteOrder(Long id) {
+    public void deleteOrder(String id) {
         Order existingOrder = getOrderById(id);
         orderRepository.delete(existingOrder);
     }

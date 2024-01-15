@@ -25,19 +25,19 @@ public class CatalogService {
         return catalogRepository.findAll();
     }
 
-    public Catalog getCatalogById(Long id) {
+    public Catalog getCatalogById(String id) {
         return catalogRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Catalog not found with id: " + id));
     }
 
-    public Catalog updateCatalog(Long id, Catalog updatedCatalog) {
+    public Catalog updateCatalog(String id, Catalog updatedCatalog) {
         Catalog existingCatalog = getCatalogById(id);
         existingCatalog.setProducts(updatedCatalog.getProducts());
         // Update other fields as needed
         return catalogRepository.save(existingCatalog);
     }
 
-    public void deleteCatalog(Long id) {
+    public void deleteCatalog(String id) {
         Catalog existingCatalog = getCatalogById(id);
         catalogRepository.delete(existingCatalog);
     }

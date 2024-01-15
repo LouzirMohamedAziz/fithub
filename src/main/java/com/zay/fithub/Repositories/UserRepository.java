@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.zay.fithub.Entities.User;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, Long> {
+public interface UserRepository extends MongoRepository<User, String> {
 
     Optional<User> findById(String id);
 }

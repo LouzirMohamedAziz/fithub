@@ -34,17 +34,17 @@ public class CatalogController {
     }
 
     @GetMapping("/{id}")
-    public Catalog getCatalogById(@PathVariable Long id) {
+    public Catalog getCatalogById(@PathVariable String id) {
         return catalogService.getCatalogById(id);
     }
 
     @PutMapping("/{id}")
-    public Catalog updateCatalog(@PathVariable Long id, @RequestBody Catalog catalog) {
+    public Catalog updateCatalog(@PathVariable String id, @RequestBody Catalog catalog) {
         return catalogService.updateCatalog(id, catalog);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCatalog(@PathVariable Long id) {
+    public void deleteCatalog(@PathVariable String id) {
         catalogService.deleteCatalog(id);
     }
 }
