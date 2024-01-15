@@ -31,7 +31,7 @@ public class UserService {
                 .orElseThrow(() -> new EntityNotFoundException("Cart not found with id: " + id));
     }
 
-    public void deleteUser(Long id) {
+    public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
 }

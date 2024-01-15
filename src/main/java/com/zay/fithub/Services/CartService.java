@@ -25,12 +25,12 @@ public class CartService {
         return cartRepository.findAll();
     }
 
-    public Cart getCartById(Long id) {
+    public Cart getCartById(String id) {
         return cartRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cart not found with id: " + id));
     }
 
-    public void deleteCart(Long id) {
+    public void deleteCart(String id) {
         cartRepository.deleteById(id);
     }
 

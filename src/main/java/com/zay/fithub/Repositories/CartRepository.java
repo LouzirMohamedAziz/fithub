@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.zay.fithub.Entities.Cart;
 
 @Repository
-public interface CartRepository extends MongoRepository<Cart, Long> {
+public interface CartRepository extends MongoRepository<Cart, String> {
 
 }
