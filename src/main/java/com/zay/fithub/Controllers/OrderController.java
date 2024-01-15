@@ -33,12 +33,12 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public Order getOrderById(@PathVariable Long id) {
+    public Order getOrderById(@PathVariable String id) {
         return orderService.getOrderById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteOrder(@PathVariable Long id) {
+    public void deleteOrder(@PathVariable String id) {
         orderService.deleteOrder(id);
     }
 }

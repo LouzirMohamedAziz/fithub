@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.zay.fithub.Entities.Product;
 
 @Repository
-public interface ProductRepository extends MongoRepository<Product, Long> {
+public interface ProductRepository extends MongoRepository<Product, String> {
 
 }
